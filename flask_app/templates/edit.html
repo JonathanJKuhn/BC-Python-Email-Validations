@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <title>Edit - {{user.fname}} {{user.lname}} - User {{user.id}}</title>
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="wrapper d-flex justify-content-between align-items-center">
+            <h1 class="mb-3">Edit User {{user.id}}</h1>
+            <a href="/users" class="btn btn-primary">Home</a>
+        </div>
+        <form action="/user/{{user.id}}/update" method="post">
+            <div class="mb-3">
+                <label for="fname" class="form-label">First Name:</label>
+                <input type="text" class="form-control" name="fname" id="fname" value="{{user.fname}}">
+            </div>
+            <div class="mb-3">
+                <label for="lname" class="form-label">Last Name:</label>
+                <input type="text" class="form-control" name="lname" id="lname" value="{{user.lname}}">
+            </div>
+            <div class="mb-3">
+                <label for="email" class="form-label">Email:</label>
+                <input type="email" class="form-control" name="email" id="email" value="{{user.email}}">
+            </div>
+            <input type="hidden" name="id" value="{{user.id}}">
+            <input type="submit" class="btn btn-success" value="Update">
+            <a href="/user/{{user.id}}/delete" class="d-block-inline btn btn-danger">Delete</a>
+        </form>
+    </div>
+</body>
+</html>
